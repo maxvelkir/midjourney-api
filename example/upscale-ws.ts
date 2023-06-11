@@ -16,8 +16,9 @@ async function main() {
     Ws: true,
   });
   await client.Connect();
+  const prompt = <string>process.env.PROMPT
   const Imagine = await client.Imagine(
-    "a cool cat, blue ears, yellow hat --v 4",
+    prompt,
     (uri: string, progress: string) => {
       console.log("loading", uri, "progress", progress);
     }
